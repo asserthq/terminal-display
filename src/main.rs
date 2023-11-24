@@ -24,8 +24,8 @@ impl ConsoleDisplay {
     }
 
     pub fn print(&self) {
-        for line in self.buffer.iter() {
-            println!("{}", String::from_utf8(line.to_vec()).unwrap());
+        for line in self.buffer.iter().cloned() {
+            println!("{}", String::from_utf8(line).unwrap());
         }
     }
 
